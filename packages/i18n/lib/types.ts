@@ -1,7 +1,5 @@
-import { readFile } from 'node:fs/promises';
+import enMessage from '../locales/en/messages.json' with { type: 'json' };
 import type { SUPPORTED_LANGUAGES } from './consts.js';
-
-const enMessage = JSON.parse(await readFile('../locales/en/messages.json', 'utf8'));
 
 export type SupportedLanguagesKeysType = keyof typeof SUPPORTED_LANGUAGES;
 export type SupportedLanguagesWithoutRegionKeysType = Exclude<SupportedLanguagesKeysType, `${string}_${string}`>;

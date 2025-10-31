@@ -1,8 +1,6 @@
 // IT WILL BE ADJUSTED TO YOUR LANGUAGE DURING BUILD TIME, DON'T MOVE BELOW IMPORT TO OTHER LINE
-import { readFile } from 'node:fs/promises';
+import localeJSON from '../locales/en/messages.json' with { type: 'json' };
 import type { I18nValueType, LocalesJSONType } from './types.js';
-
-const localeJSON = JSON.parse(await readFile('../locales/en/messages.json', 'utf8'));
 
 const translate = (key: keyof LocalesJSONType, substitutions?: string | string[]) => {
   const localeValues = localeJSON[key] as I18nValueType;
